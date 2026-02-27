@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECTS - PIRAVAT SPACE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #b026ff;
+            --dark-bg: #050510;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at 15% 50%, rgba(176, 38, 255, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.1) 0%, transparent 50%);
+        }
+
+        /* Navbar แบบย่อ */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 50px; border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(5, 5, 16, 0.8); backdrop-filter: blur(10px);
+        }
+        
+        .back-btn {
+            color: var(--neon-blue); text-decoration: none; font-weight: 600;
+            display: flex; align-items: center; gap: 10px; transition: 0.3s;
+        }
+        .back-btn:hover { text-shadow: 0 0 10px var(--neon-blue); transform: translateX(-5px); }
+
+        h1 {
+            font-family: 'Syncopate', sans-serif; text-align: center;
+            margin: 40px 0; font-size: 2.5rem; letter-spacing: 3px;
+            color: transparent; -webkit-text-stroke: 1px var(--neon-purple);
+            text-shadow: 0 0 15px rgba(176, 38, 255, 0.5);
+        }
+
+        /* โครงสร้าง Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; padding: 0 50px 50px; max-width: 1200px; margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(10, 10, 25, 0.6); border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 10px; padding: 25px; transition: 0.3s;
+            display: flex; flex-direction: column; gap: 15px;
+        }
+
+        .project-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.15) inset, 0 10px 20px rgba(0,0,0,0.5);
+            transform: translateY(-5px);
+        }
+
+        .project-icon { font-size: 2rem; color: var(--neon-purple); }
+        
+        .project-title { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; }
+        
+        .project-desc { font-size: 0.85rem; color: #bbb; line-height: 1.6; flex-grow: 1; }
+
+        .tech-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+        
+        .tech-tag {
+            background: rgba(176, 38, 255, 0.1); border: 1px solid var(--neon-purple);
+            padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; color: #fff;
+        }
+
+        .view-btn {
+            margin-top: 15px; padding: 10px; text-align: center;
+            background: transparent; color: var(--neon-blue); text-decoration: none;
+            border: 1px solid var(--neon-blue); border-radius: 5px; font-weight: 600;
+            transition: 0.3s; text-transform: uppercase; font-size: 0.8rem;
+        }
+
+        .view-btn:hover { background: rgba(0, 243, 255, 0.1); text-shadow: 0 0 8px var(--neon-blue); }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK TO SPACE</a>
+    </header>
+
+    <h1>MY MISSIONS</h1>
+
+    <div class="project-grid">
+        <div class="project-card">
+            <i class="fa-solid fa-users-gear project-icon"></i>
+            <div class="project-title">Sci-Tech Club Management System</div>
+            <div class="project-desc">ระบบจัดการข้อมูลชมรมวิทยาศาสตร์และเทคโนโลยี ครอบคลุมการจัดการสมาชิก การจัดเก็บข้อมูลกิจกรรม และระบบสร้างรายงาน (Reports) สำหรับคณะกรรมการและอาจารย์ที่ปรึกษา</div>
+            <div class="tech-stack">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">CodeIgniter 4</span>
+                <span class="tech-tag">MySQL</span>
+            </div>
+            <a href="https://github.com/piravat-dev" target="_blank" class="view-btn">View Code / Demo</a>
+        </div>
+
+        <div class="project-card">
+            <i class="fa-solid fa-dumbbell project-icon"></i>
+            <div class="project-title">Smart Strength Training Planner</div>
+            <div class="project-desc">แอปพลิเคชันจัดตารางฝึกซ้อมเวทเทรนนิ่งอัจฉริยะ (Web & Mobile) มีฟังก์ชันวิเคราะห์จุดอ่อนของกล้ามเนื้อ และระบบคำนวณการเพิ่มน้ำหนักอัตโนมัติ (Automated Progressive Overload)</div>
+            <div class="tech-stack">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Supabase</span>
+                <span class="tech-tag">Web/Mobile</span>
+            </div>
+            <a href="https://fit.piravat.space/" target="_blank" class="view-btn">View Code / Demo</a>
+        </div>
+
+        <div class="project-card">
+            <i class="fa-solid fa-robot project-icon"></i>
+            <div class="project-title">CerPorTal</div>
+            <div class="project-desc">โครงการพัฒนาหุ่นยนต์เพื่อสนับสนุนการปลูกป่า (Reforestation) ออกแบบมาเพื่อทำงานในพื้นที่ธรรมชาติและช่วยฟื้นฟูระบบนิเวศ</div>
+            <div class="tech-stack">
+                <span class="tech-tag">Robotics</span>
+                <span class="tech-tag">Sensors</span>
+                <span class="tech-tag">Hardware</span>
+            </div>
+            <a href="https://cert.piravat.space/" target="_blank" class="view-btn">View Details</a>
+        </div>
+    </div>
+
+</body>
+</html>
