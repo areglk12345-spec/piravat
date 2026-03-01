@@ -15,40 +15,40 @@
            🎨 ระบบตั้งค่าสี (Color Variables)
            ========================================= */
         :root {
-            /* 🌌 Dark Mode: แดง / ม่วง / ส้ม */
-            --bg-main: #0c0406; /* ดำอมแดงนิดๆ ให้เข้าโทน */
+            /* 🌌 Dark Mode: ธีมสีแดง (Neon Red & Deep Crimson) ตรงกับหน้า Projects */
+            --bg-main: #0a0002;
             --text-main: #ffffff;
-            --text-muted: #ffc2d1; /* สีเทาอมชมพูส้ม */
+            --text-muted: #ffb3b3;
             
-            --accent-1: #ff1a4a; /* แดงนีออน (Red) */
-            --accent-2: #ff7b00; /* ส้มนีออน (Orange) */
-            --accent-3: #9d00ff; /* ม่วงนีออน (Purple) */
+            --accent-1: #ff003c;
+            --accent-2: #b30000;
+            --accent-3: #ff4d4d;
             
-            --card-bg: rgba(20, 5, 10, 0.7);
-            --card-hover: rgba(30, 10, 15, 0.9);
-            --glass-border: rgba(255, 26, 74, 0.2);
+            --card-bg: rgba(20, 0, 5, 0.7);
+            --card-hover: rgba(35, 5, 10, 0.9);
+            --glass-border: rgba(255, 0, 60, 0.25);
             
-            --grid-line: rgba(157, 0, 255, 0.2); /* เส้นกริดสีม่วง */
-            --glow-shadow: rgba(255, 123, 0, 0.4); /* แสงเงาสีส้ม */
-            --header-bg: rgba(12, 4, 6, 0.8);
+            --grid-line: rgba(255, 0, 60, 0.15);
+            --glow-shadow: rgba(255, 0, 60, 0.45);
+            --header-bg: rgba(10, 0, 2, 0.8);
         }
 
         [data-theme="light"] {
             /* ☀️ Light Mode: ขาว / ฟ้า / ม่วง */
-            --bg-main: #f4f7ff; /* ขาวอมฟ้านิดๆ ให้ดูสะอาดตา */
+            --bg-main: #f4f7ff;
             --text-main: #1a1e36;
             --text-muted: #64748b;
             
-            --accent-1: #007bff; /* ฟ้าสว่าง (Blue) */
-            --accent-2: #8a2be2; /* ม่วงสว่าง (Purple) */
-            --accent-3: #00d4ff; /* ฟ้าอ่อน (Light Blue) */
+            --accent-1: #007bff;
+            --accent-2: #8a2be2;
+            --accent-3: #00d4ff;
             
             --card-bg: rgba(255, 255, 255, 0.8);
             --card-hover: rgba(255, 255, 255, 1);
             --glass-border: rgba(0, 123, 255, 0.15);
             
-            --grid-line: rgba(138, 43, 226, 0.1); /* เส้นกริดสีม่วงอ่อน */
-            --glow-shadow: rgba(0, 123, 255, 0.3); /* แสงเงาสีฟ้า */
+            --grid-line: rgba(138, 43, 226, 0.1);
+            --glow-shadow: rgba(0, 123, 255, 0.3);
             --header-bg: rgba(255, 255, 255, 0.7);
         }
 
@@ -69,14 +69,13 @@
             transition: background-color 0.5s ease, color 0.5s ease; 
         }
 
-        /* --- เอฟเฟกต์อวกาศ 3 สี --- */
+        /* --- เอฟเฟกต์อวกาศ --- */
         .space-bg {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                radial-gradient(circle at 15% 50%, var(--accent-3) 0%, transparent 40%),
-                radial-gradient(circle at 85% 30%, var(--accent-1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 90%, var(--accent-2) 0%, transparent 40%);
+                radial-gradient(circle at 15% 30%, var(--accent-2) 0%, transparent 40%),
+                radial-gradient(circle at 85% 70%, var(--accent-1) 0%, transparent 40%);
             opacity: 0.15; z-index: -2; transition: 0.5s ease;
         }
 

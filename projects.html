@@ -12,27 +12,28 @@
 
     <style>
         /* =========================================
-           🎨 ระบบตั้งค่าสี (Color Variables แบบเดียวกับหน้าหลัก)
+           🎨 ระบบตั้งค่าสี (Color Variables)
            ========================================= */
         :root {
-            /* 🌌 Dark Mode: แดง / ม่วง / ส้ม */
-            --bg-main: #0c0406;
+            /* 🌌 Dark Mode: ธีมสีแดง (Neon Red & Deep Crimson) */
+            --bg-main: #0a0002; /* ดำอมแดงเข้มจัด */
             --text-main: #ffffff;
-            --text-muted: #ffc2d1;
+            --text-muted: #ffb3b3; /* เทาอมแดง */
             
-            --accent-1: #ff1a4a; /* Red */
-            --accent-2: #ff7b00; /* Orange */
-            --accent-3: #9d00ff; /* Purple */
+            --accent-1: #ff003c; /* แดงนีออนสว่าง (Neon Red) */
+            --accent-2: #b30000; /* แดงเลือดหมู (Deep Red) */
+            --accent-3: #ff4d4d; /* แดงสว่าง (Light Red) */
             
-            --card-bg: rgba(20, 5, 10, 0.7);
-            --card-hover: rgba(30, 10, 15, 0.9);
-            --glass-border: rgba(255, 26, 74, 0.2);
-            --glow-shadow: rgba(255, 123, 0, 0.4);
-            --header-bg: rgba(12, 4, 6, 0.8);
+            --card-bg: rgba(20, 0, 5, 0.7); /* พื้นหลังการ์ดอมแดง */
+            --card-hover: rgba(35, 5, 10, 0.9);
+            --glass-border: rgba(255, 0, 60, 0.25);
+            --glow-shadow: rgba(255, 0, 60, 0.45);
+            --grid-line: rgba(255, 0, 60, 0.15);
+            --header-bg: rgba(10, 0, 2, 0.8);
         }
 
         [data-theme="light"] {
-            /* ☀️ Light Mode: ขาว / ฟ้า / ม่วง */
+            /* ☀️ Light Mode: ขาว / ฟ้า / ม่วง (เหมือนเดิม) */
             --bg-main: #f4f7ff;
             --text-main: #1a1e36;
             --text-muted: #64748b;
@@ -45,6 +46,7 @@
             --card-hover: rgba(255, 255, 255, 1);
             --glass-border: rgba(0, 123, 255, 0.15);
             --glow-shadow: rgba(0, 123, 255, 0.3);
+            --grid-line: rgba(138, 43, 226, 0.1);
             --header-bg: rgba(255, 255, 255, 0.7);
         }
 
@@ -66,10 +68,28 @@
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                radial-gradient(circle at 15% 30%, var(--accent-3) 0%, transparent 40%),
+                radial-gradient(circle at 15% 30%, var(--accent-2) 0%, transparent 40%),
                 radial-gradient(circle at 85% 70%, var(--accent-1) 0%, transparent 40%);
             opacity: 0.15; z-index: -2; transition: 0.5s ease;
         }
+
+        /* ตาราง 3D (Warp Grid) */
+        .grid-container {
+            position: absolute; bottom: -50px; left: 0; width: 100%; height: 50vh;
+            perspective: 600px; z-index: -1; overflow: hidden;
+        }
+
+        .grid {
+            width: 200%; height: 200%; position: absolute; bottom: 0; left: -50%;
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(75deg); transform-origin: bottom center;
+            animation: moveGrid 15s linear infinite; transition: 0.5s ease;
+        }
+
+        @keyframes moveGrid { 0% { transform: rotateX(75deg) translateY(0); } 100% { transform: rotateX(75deg) translateY(50px); } }
 
         /* Navbar แบบย่อ */
         header {
@@ -97,7 +117,7 @@
         h1 {
             font-family: 'Syncopate', sans-serif; text-align: center;
             margin: 50px 0 40px; font-size: 2.5rem; letter-spacing: 3px;
-            color: transparent; -webkit-text-stroke: 1px var(--accent-2);
+            color: transparent; -webkit-text-stroke: 1px var(--accent-3);
             text-shadow: 0 0 20px var(--glow-shadow); transition: 0.5s ease;
         }
 
@@ -138,7 +158,7 @@
         .tech-stack { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
         
         .tech-tag {
-            background: rgba(128, 128, 128, 0.1); border: 1px solid var(--glass-border);
+            background: rgba(255, 0, 60, 0.1); border: 1px solid var(--glass-border);
             padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600;
             color: var(--text-main); transition: 0.5s;
         }
@@ -152,7 +172,7 @@
         }
 
         .view-btn:hover { 
-            background: linear-gradient(90deg, var(--accent-1), var(--accent-3)); 
+            background: linear-gradient(90deg, var(--accent-2), var(--accent-1)); 
             color: #fff; border-color: transparent;
             box-shadow: 0 5px 15px var(--glow-shadow); 
         }
@@ -162,6 +182,9 @@
 <body>
 
     <div class="space-bg"></div>
+    <div class="grid-container">
+        <div class="grid"></div>
+    </div>
 
     <header>
         <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> BACK</a>
@@ -181,7 +204,7 @@
                 <span class="tech-tag">CodeIgniter 4</span>
                 <span class="tech-tag">MySQL</span>
             </div>
-            <a href="https://github.com/piravat-dev" target="_blank" class="view-btn">View Code / Demo</a>
+            <a href="https://github.com/areglk12345-spec" target="_blank" class="view-btn">View Code / Demo</a>
         </div>
 
         <div class="project-card">
@@ -214,7 +237,7 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const rootElement = document.documentElement;
 
-        // เช็คค่า Theme จาก LocalStorage (เพื่อให้เปลี่ยนสีตามหน้าเว็บหลัก)
+        // เช็คค่า Theme จาก LocalStorage
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             rootElement.setAttribute('data-theme', 'light');
